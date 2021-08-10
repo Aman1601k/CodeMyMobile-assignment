@@ -5,12 +5,16 @@ import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
 import Nav from 'react-bootstrap/Nav'
 import { Link } from 'react-router-dom'
-import { getallproducts } from '../actions'
+import { getallproducts, getSingleproduct } from '../actions'
 import {useDispatch, useSelector} from 'react-redux'
 
 const Home = () => {
   const product = useSelector(state => state.product)
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
+
+  const handleSingleProduct = (id) => {
+    dispatch(getSingleproduct(id))
+  }
 
   useEffect(() => {
     dispatch(getallproducts())
@@ -35,11 +39,11 @@ const Home = () => {
             <Card style={{ width: '18rem' , margin: '10px'}}>
             <Card.Img variant="top" src={product.image} />
             <Card.Body>
-              <Card.Title>{product.name}</Card.Title>
+              <Card.Title>{product.title}</Card.Title>
               <Card.Text>
                 {product.description}
               </Card.Text>
-              <Button variant="primary">View</Button>
+              <Button onClick={() => handleSingleProduct(product._id)} variant="primary">View</Button>
             </Card.Body>
           </Card>
           )

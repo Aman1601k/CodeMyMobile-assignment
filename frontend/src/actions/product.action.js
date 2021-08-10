@@ -24,3 +24,26 @@ export const getallproducts = () => {
         }
     }
 }
+
+export const getSingleproduct = (id) => {
+    
+    return async (dispatch) => {      
+        dispatch({ type: productConstants.GET_SINGLE_PRODUCT_REQUEST});
+        
+        const res = await axiosInstance.get(`/product/${id}`)
+        if(res.status == 200){
+            const {data} = res;
+            dispatch({ 
+                type: productConstants.GET_SINGLE_PRODUCT_SUCCESS,
+                payload:{data}
+            });
+        }
+        else{
+            const {error} = res.data;
+            dispatch({ 
+                type: productConstants.GET_SINGLE_PRODUCT_FAILURE,
+                payload:{error}
+            });
+        }
+    }
+}
