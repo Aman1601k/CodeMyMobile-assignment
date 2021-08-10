@@ -20,7 +20,7 @@ const Home = () => {
   }
 
   const AddToCart = (id) => {
-    dispatch(addToCart(id,auth.user._id))
+    dispatch(addToCart(id , auth.user._id))
   }
 
   useEffect(() => {
