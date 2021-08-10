@@ -4,6 +4,7 @@ import SignUp from './container/SignUp';
 import SignIn from './container/SignIn';
 import Home from './container/Home';
 import ProductDetail from './container/ProductDetail';
+import Cart from './container/Cart';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
             <Route path="/signin" component={SignIn} />
             <Route path="/signup" component={SignUp} />
             <Route path="/product/:id" component={ProductDetail} />
+            <Route exact path="/cart" component={Cart} />
           </Switch>
     </div>
     </Router>
