@@ -5,18 +5,18 @@ import SignIn from './container/SignIn';
 import Home from './container/Home';
 import ProductDetail from './container/ProductDetail';
 import Cart from './container/Cart';
+import PrivateRoute from './components/HOC/PrivateRoute';
 
 function App() {
   return (
     <Router>
     <div className="App">
-      {/* <Navbar/> */}
           <Switch>
-            <Route exact path="/" component={Home}/>
             <Route path="/signin" component={SignIn} />
             <Route path="/signup" component={SignUp} />
-            <Route path="/product/:id" component={ProductDetail} />
-            <Route exact path="/cart" component={Cart} />
+            <PrivateRoute exact path="/" component={Home}/>
+            <PrivateRoute path="/product/:id" component={ProductDetail} />
+            <PrivateRoute exact path="/cart" component={Cart} />
           </Switch>
     </div>
     </Router>

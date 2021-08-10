@@ -9,9 +9,13 @@ import { useSelector } from 'react-redux';
 
 const MainNavbar = () => {
   let history = useHistory();
-  
+
   const GotoCart = () => {
     history.push(`/cart`);
+  }
+
+  const signOut = () => {
+    localStorage.clear();
   }
 
   const cart = useSelector(state => state.cart)
@@ -25,7 +29,9 @@ const MainNavbar = () => {
             <Link to="">
               <Button variant="primary" onClick={() => GotoCart()}>
                 Cart <Badge bg="secondary">{cart?.cart?.length}</Badge>
-                {/* <span className="visually-hidden">unread messages</span> */}
+              </Button>
+              <Button variant="secondary" onClick={() => signOut()}>
+                Sign Out
               </Button>
             </Link>
           </Nav>
