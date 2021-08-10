@@ -14,6 +14,7 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    cart:[{type:ObjectId ,ref:'Product'}]
 })
 
 mongoose.model('User' , userSchema)

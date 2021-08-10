@@ -20,17 +20,13 @@ const ProductDetail = () => {
                     alt="171x180"
                     src={product.singleProduct.image}
                 />
-                <Figure.Caption className="mt-3" >
+                <h2 className="mt-3 text-center" >
                    {product.singleProduct.title}
-                </Figure.Caption>
-                <Accordion className="mt-3">
-                <Accordion.Item eventKey="0">
-                    <Accordion.Header>Description</Accordion.Header>
-                    <Accordion.Body>
-                    {product.singleProduct.description}
-                    </Accordion.Body>
-                </Accordion.Item>
-                </Accordion>
+                </h2>
+
+                <p>
+                    <h6>Description :</h6>    {product.singleProduct.description}
+                </p>
                 <h4 className="mt-3">
                     Price : <Badge bg="secondary">{product.singleProduct.price}</Badge>
                 </h4>
