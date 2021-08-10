@@ -1,37 +1,30 @@
 import React, { useEffect } from 'react'
-import Navbar from 'react-bootstrap/Navbar'
 import Container from 'react-bootstrap/Container'
 import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
-import Nav from 'react-bootstrap/Nav'
-import { Link } from 'react-router-dom'
+// import { Link } from 'react-router-dom'
 import { getallproducts, getSingleproduct } from '../actions'
 import {useDispatch, useSelector} from 'react-redux'
+import MainNavbar from '../components/Navbar'
+import { useHistory } from "react-router-dom";
 
 const Home = () => {
   const product = useSelector(state => state.product)
   const dispatch = useDispatch();
+  let history = useHistory();
 
   const handleSingleProduct = (id) => {
     dispatch(getSingleproduct(id))
+    history.push(`/product/:${id}`);
   }
 
   useEffect(() => {
     dispatch(getallproducts())
   }, [])
+
   return (
     <>
-    <Navbar bg="light" expand="lg">
-      <Container>
-        <Navbar.Brand href="#home">CodeMyMobile</Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav" className="d-flex justifyContent-end">
-          <Nav className="me-auto">
-            <Link to="">Cart</Link>
-          </Nav>
-        </Navbar.Collapse>
-      </Container>
-    </Navbar>
+    <MainNavbar/>
     <Container style={{display: 'flex', flexWrap: 'wrap'}}>
     {
       product?.products?.map((product) => {

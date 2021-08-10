@@ -1,25 +1,23 @@
 import React from 'react'
 import {Link} from 'react-router-dom';
+import Navbar from 'react-bootstrap/Navbar'
+import Container from 'react-bootstrap/Container'
+import Nav from 'react-bootstrap/Nav'
 
-
-const Navbar = () => {
+const MainNavbar = () => {
     return (
-        <nav className="navbar navbar-expand-lg navbar-light fixed-top">
-        <div className="container">
-          <Link className="navbar-brand" to={"/sign-in"}>CodeMyMobile</Link>
-          <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
-            <ul className="navbar-nav ml-auto">
-              <li className="nav-item">
-                <Link className="nav-link" to={"/signin"}>Login</Link>
-              </li>
-              <li className="nav-item">
-                <Link className="nav-link" to={"/signup"}>Sign up</Link>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav>
+      <Navbar bg="light" expand="lg">
+      <Container>
+        <Navbar.Brand href="#home">CodeMyMobile</Navbar.Brand>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav" className="d-flex justifyContent-end">
+          <Nav className="me-auto">
+            <Link to="">Cart</Link>
+          </Nav>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
     )
 }
 
-export default Navbar
+export default MainNavbar
