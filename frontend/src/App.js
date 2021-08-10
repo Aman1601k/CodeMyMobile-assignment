@@ -9,15 +9,11 @@ function App() {
     <Router>
     <div className="App">
       {/* <Navbar/> */}
-      <div className="auth-wrapper">
-        <div className="auth-inner">
           <Switch>
             <Route exact path="/" component={Home}/>
             <Route path="/signin" component={SignIn} />
             <Route path="/signup" component={SignUp} />
           </Switch>
-        </div>
-      </div>
     </div>
     </Router>
   );

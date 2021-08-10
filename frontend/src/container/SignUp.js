@@ -25,6 +25,9 @@ const SignUp = () => {
         return <Redirect to={`/signin`} />;
     }
     return (
+        <div className="auth-wrapper">
+        <div className="auth-inner">
+            
         <form>
             <h3>Sign Up</h3>
 
@@ -48,6 +51,8 @@ const SignUp = () => {
                 Already registered <Link to="signin">Sign in</Link>
             </p>
         </form>
+        </div>
+        </div>
     )
 }
 

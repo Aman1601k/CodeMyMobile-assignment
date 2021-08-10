@@ -24,6 +24,9 @@ const SignIn = () => {
         return <Redirect to={`/`} />;
       }
     return (
+        <div className="auth-wrapper">
+        <div className="auth-inner">
+
 
         <form>
                 <h3>Sign In</h3>
@@ -43,7 +46,8 @@ const SignIn = () => {
                 Don't have an account?<Link to="signup"> Sign up</Link>
                 </p>
             </form>
-        
+        </div>
+        </div>
     )
 }
 
