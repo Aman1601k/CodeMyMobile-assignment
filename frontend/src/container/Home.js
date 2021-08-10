@@ -21,29 +21,27 @@ const Home = () => {
       <Container>
         <Navbar.Brand href="#home">CodeMyMobile</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
+        <Navbar.Collapse id="basic-navbar-nav" className="d-flex justifyContent-end">
           <Nav className="me-auto">
-            <Link to="">Home</Link>
             <Link to="">Cart</Link>
           </Nav>
         </Navbar.Collapse>
       </Container>
     </Navbar>
-    <Container style={{display: 'flex',margin:'0 10px' , flexWrap: 'wrap'}}>
+    <Container style={{display: 'flex', flexWrap: 'wrap'}}>
     {
       products.map((product) => {
         return (
-            <Card style={{ width: '18rem' }}>
+            <Card style={{ width: '18rem' , margin: '10px'}}>
             <Card.Img variant="top" src="https://media.istockphoto.com/photos/red-apple-picture-id184276818?k=6&m=184276818&s=612x612&w=0&h=Fm2-2w98ahP4jUkj3UjgPa-dIqEHlRrsTxdA_a-Cclk=" />
             <Card.Body>
               <Card.Title>{product.name}</Card.Title>
               <Card.Text>
-                {product.description}.
+                {product.description}
               </Card.Text>
-              <Button variant="primary">Go somewhere</Button>
+              <Button variant="primary">View</Button>
             </Card.Body>
           </Card>
-          
           )
         }
         )
