@@ -8,14 +8,15 @@ import Button from 'react-bootstrap/esm/Button';
 import { useSelector } from 'react-redux';
 
 const MainNavbar = () => {
-  let history = useHistory();
+  const history = useHistory();
 
   const GotoCart = () => {
-    history.push(`/cart`);
+    history.push(`/product/121121`);
   }
 
   const signOut = () => {
     localStorage.clear();
+    window.location.reload();
   }
 
   const cart = useSelector(state => state.cart)
@@ -26,8 +27,8 @@ const MainNavbar = () => {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav" className="d-flex justifyContent-end">
           <Nav className="me-auto">
-            <Link to="">
-              <Button variant="primary" onClick={() => GotoCart()}>
+            <Link to="/cart">
+              <Button variant="primary" onClick={() => {GotoCart()}}>
                 Cart <Badge bg="secondary">{cart?.cart?.length}</Badge>
               </Button>
               <Button variant="secondary" onClick={() => signOut()}>
